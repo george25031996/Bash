@@ -14,7 +14,7 @@ nginxstatus=$(systemctl status nginx | grep -Eo "running|dead|failed")
                  systemctl restart nginx # Перезапуск nginx
                  sleep 1 # Ожидаем 1 секунду, чтобы сервер точно запустился.
                  $tg "Статус Nginx после перезапуска $(systemctl status nginx | grep -Eo "running|dead|failed") !!" > /dev/null
-                 echo $(curl -I 10.128.41.201 | grep OK) # Проверяем отдаёт ли веб-сервер http код 200
+                 echo $(curl -I | grep OK) # Проверяем отдаёт ли веб-сервер http код 200
            fi
 
 phpfpmstatus=$(systemctl status php8.1-fpm.service | grep -Eo "running|dead|failed")
